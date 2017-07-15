@@ -6,7 +6,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -14,38 +13,40 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.XML;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.google.gson.Gson;
 
-import kr.co.kncom.dao.AuctionDao;
+import kr.co.kncom.dao.AuctionListDao;
 import kr.co.kncom.dao.MarketConditionDao;
-import kr.co.kncom.vo.AuctionVO;
+import kr.co.kncom.domain.AuctionList;
 import kr.co.kncom.vo.MarketConditionVO;
 import kr.co.kncom.vo.MarketPriceVO;
 
+@Component
 public class AuctionService {
 
 	// 빈 설정으로 변경해야 함.
-	private AuctionDao auctionDao = new AuctionDao();
+	//private AuctionDao auctionDao = new AuctionDao();
+	@Autowired
+	private AuctionListDao auctionListDao;
+	
 	private MarketConditionDao marketConditionDao = new MarketConditionDao();
 
-	public List<AuctionVO> getAuctionList(String bidDate) {
+	public List<AuctionList> getAuctionList(String bidDate) {
 
-		List<AuctionVO> rtnAuctionList = null;
+		List<AuctionList> rtnAuctionList = null;
 
-		try {
-			rtnAuctionList = auctionDao.getAuctionList(bidDate);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
+		//rtnAuctionList = auctionDao.getAuctionList(bidDate);
+		//rtnAuctionList = auctionListDao.findBySaledayLike(bidDate);
+		auctionListDao.findBySaledayLike(bidDate);
 		return rtnAuctionList;
 	}
 
 	public int getAuctionCnt(String bidDate) {
 
-		return auctionDao.getAuctionCnt(bidDate);
+		return (int) auctionListDao.count();
 	}
 
 	public String getMarketPriceList(Map params) {

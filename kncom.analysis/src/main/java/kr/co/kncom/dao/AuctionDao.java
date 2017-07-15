@@ -23,7 +23,7 @@ public class AuctionDao {
 	private final String URL = "jdbc:mysql://127.0.0.1/finsy";
 	private final String USER = "root";
 	private final String PW = "root";
-
+	
 	public List<AuctionVO> getAuctionList(String bidDate) throws SQLException {
 
 		Connection conn = null;
