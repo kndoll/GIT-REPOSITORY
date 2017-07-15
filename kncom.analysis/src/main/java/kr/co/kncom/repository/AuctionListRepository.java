@@ -8,7 +8,7 @@ import kr.co.kncom.domain.AuctionList;
 
 public interface AuctionListRepository extends JpaRepository<AuctionList, String> {
 	
-	List<AuctionList> findBySaledayStartingWith(String saleday);
+	List<AuctionList> findBySaledayStartingWithOrderBySaledayAsc(String saleday);
 	Long countBySaledayStartingWith(String saleday);
 	
 }

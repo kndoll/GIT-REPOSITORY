@@ -27,12 +27,9 @@ public class AuctionList {
 	public String auctionAnalysis(Model model, @RequestParam(value = "bidDate", defaultValue = "99.09.09") String bidDate) {
 		
 		System.out.println("## B I D - D A T E ==> " + bidDate);
-		
-		//model.addAttribute("totalCnt", auctionService.getAuctionCnt(bidDate));
-		//model.addAttribute("auctionList", auctionService.getAuctionList(bidDate));
 
 		model.addAttribute("totalCnt", auctionListRepository.countBySaledayStartingWith(bidDate));
-		model.addAttribute("auctionList", auctionListRepository.findBySaledayStartingWith(bidDate));
+		model.addAttribute("auctionList", auctionListRepository.findBySaledayStartingWithOrderBySaledayAsc(bidDate));
 		
 		return "auctionAnalysis";
 	}
