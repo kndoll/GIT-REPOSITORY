@@ -1,7 +1,6 @@
 package kr.co.kncom.vo;
 
-import java.util.List;
-
+@Deprecated
 public class AuctionVO {
 
 	private String ind;
@@ -22,8 +21,6 @@ public class AuctionVO {
 	private String bunji2;
 	private String x;
 	private String y;
-	
-	private List<MarketConditionVO> marketConditionList;
 	
 	public String getInd() {
 		return ind;
@@ -167,13 +164,5 @@ public class AuctionVO {
 
 	public void setY(String y) {
 		this.y = y;
-	}
-
-	public List<MarketConditionVO> getMarketConditionList() {
-		return marketConditionList;
-	}
-
-	public void setMarketConditionList(List<MarketConditionVO> marketConditionList) {
-		this.marketConditionList = marketConditionList;
 	}
 }

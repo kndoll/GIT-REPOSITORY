@@ -13,11 +13,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.gson.Gson;
 
 import kr.co.kncom.repository.AuctionListRepository;
+import kr.co.kncom.service.AuctionService;
 
 @Controller
 public class AuctionList {
 
-	//AuctionService auctionService = new AuctionService();
+	AuctionService auctionService = new AuctionService();
 	@Autowired
 	AuctionListRepository auctionListRepository;
 	Gson gson = new Gson();
@@ -39,8 +40,7 @@ public class AuctionList {
 	@RequestMapping(value = "/auctionMarketPrice", method = RequestMethod.GET)
 	public @ResponseBody String auctionMarketPrice(Model model, @RequestParam HashMap<String, String> params) {
 		
-		//return auctionService.getMarketPriceList(params);
-		return null;
+		return auctionService.getMarketPriceList(params);
 	}
 
 }

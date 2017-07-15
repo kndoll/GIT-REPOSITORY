@@ -15,6 +15,7 @@ import kr.co.kncom.vo.AuctionVO;
  * 환경 설정 임시 테스트 dao 절때 이렇게 작업하면 안됨.
  * 
  * @author kndoll
+ * @deprecated
  *
  */
 public class AuctionDao {
