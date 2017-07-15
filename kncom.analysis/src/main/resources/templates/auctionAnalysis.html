@@ -138,7 +138,7 @@
 							//alert(jsonObj.length);
 							$.each(jsonObj, function(){
 								// tr append
-								var trData = "<tr id=" + index + ">";
+								var trData = "<tr id=" + encodeURI(bidName) + ">";
 								
 								trData += "<td><b>" + this.bidName + "</b></td>";
 								trData += "<td>" + this.date + "</td>";
@@ -164,12 +164,8 @@
 					});
     		} else {
 	    		// 체크 해제시는 해당 키의 자료 삭제
-	    		// tr을 순회하면서 키와 동일하면 삭제한다.
-	    		/*
-	    		$("#marketPriceList").each(function(index, element){
-	    		});
-	    		*/
-	    		$("#marketPriceList").find()
+	    		console.log(index);
+	    		$("#marketPriceList tr[id='" + encodeURI(bidName) + "']").remove();
     		}	
     		
     	}
