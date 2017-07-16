@@ -20,13 +20,63 @@
   <body>
     <h1></h1>
  	<div class="container">
- 		<form action="/auctionAnalysis" class="navbar-form navbar-left" role="search">
-		  <div class="form-group"><span class="label label-default">낙찰년월일&nbsp;</span>
-		    <input type="text" name="bidDate" class="form-control" placeholder="낙찰년월일 (12.01.01)" value="12.01">
-		  </div>
-		  <button type="submit" class="btn btn-default">실행</button>
-		</form>
-		<br>
+ 		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="#">LOBIG</a>
+		    </div>
+		
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <!--
+		      <ul class="nav navbar-nav">
+		        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+		        <li><a href="#">Link</a></li>
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+		          <ul class="dropdown-menu" role="menu">
+		            <li><a href="#">Action</a></li>
+		            <li><a href="#">Another action</a></li>
+		            <li><a href="#">Something else here</a></li>
+		            <li class="divider"></li>
+		            <li><a href="#">Separated link</a></li>
+		            <li class="divider"></li>
+		            <li><a href="#">One more separated link</a></li>
+		          </ul>
+		        </li>
+		      </ul>
+		      -->
+		      <form action="/auctionAnalysis" class="navbar-form navbar-left" role="search" >
+		        <div class="form-group">
+		          <input type="text" name="bidDate" class="form-control" placeholder="낙찰년월일 (12.01.01)" value="">
+		        </div>
+		        <button type="submit" class="btn btn-default">검색</button>
+		      </form>
+		      <!--
+		      <ul class="nav navbar-nav navbar-right">
+		        <li><a href="#">Link</a></li>
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+		          <ul class="dropdown-menu" role="menu">
+		            <li><a href="#">Action</a></li>
+		            <li><a href="#">Another action</a></li>
+		            <li><a href="#">Something else here</a></li>
+		            <li class="divider"></li>
+		            <li><a href="#">Separated link</a></li>
+		          </ul>
+		        </li>
+		      </ul>
+		      -->
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
 		<h3><span class="label label-default">경매정보 (총 <b>{{totalCnt}}</b>)건</span></h3>
 		<div style="width:100%; height:300px; overflow:auto">
 		<table class="table table-striped table-bordered table-hover" style="font-size:10px">

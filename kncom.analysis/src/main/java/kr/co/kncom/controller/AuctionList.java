@@ -24,10 +24,11 @@ public class AuctionList {
 	Gson gson = new Gson();
 	
 	@RequestMapping("/auctionAnalysis")
-	public String auctionAnalysis(Model model, @RequestParam(value = "bidDate", defaultValue = "99.09.09") String bidDate) {
+	public String auctionAnalysis(Model model, @RequestParam(value = "bidDate", defaultValue = "12.01") String bidDate) {
 		
 		System.out.println("## B I D - D A T E ==> " + bidDate);
-
+		
+		model.addAttribute("bidDate", bidDate);
 		model.addAttribute("totalCnt", auctionListRepository.countBySaledayStartingWith(bidDate));
 		model.addAttribute("auctionList", auctionListRepository.findBySaledayStartingWithOrderBySaledayAsc(bidDate));
 		
